@@ -8,4 +8,26 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="AppThemeWithWhiteToolbar.ToolbarTheme" parent="Theme.MaterialComponents.Light">
+        <item name="toolbarStyle">@style/AppThemeWithWhiteToolbar.TitleTextStyle</item>
+    </style>
+
+    <style name="AppThemeWithWhiteToolbar.TitleTextStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="titleTextColor">@color/colorTextDark</item>
+    </style>
+
+    <style name="AppThemeWithToolbar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorScreenBackground</item>
+        <item name="toolbarStyle">@style/ToolbarTheme</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+
 </resources>
