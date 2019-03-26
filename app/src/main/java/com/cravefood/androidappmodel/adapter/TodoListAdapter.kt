@@ -8,6 +8,15 @@ import com.cravefood.androidappmodel.R
 import com.cravefood.androidappmodel.data.model.TodoResponseModel
 import com.cravefood.androidappmodel.databinding.CellTodoBinding
 
+/*
+*************************************
+*************************************
+* *                               * *
+* *    DO NOT FOLLOW THIS FILE    * *
+* *                               * *
+*************************************
+************
+ */
 class TodoListAdapter(
     private val todoList: MutableList<TodoResponseModel> = mutableListOf()
 ) : RecyclerView.Adapter<TodoListAdapter.ViewHolder>() {

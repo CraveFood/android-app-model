@@ -5,6 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.cravefood.androidappmodel.data.model.TodoResponseModel
 
+/*
+*************************************
+*************************************
+* *                               * *
+* *    DO NOT FOLLOW THIS FILE    * *
+* *                               * *
+*************************************
+************
+ */
 object TodoListSetter {
 
     @BindingAdapter("app:rvdata")

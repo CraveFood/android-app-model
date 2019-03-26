@@ -14,7 +14,15 @@ import com.cravefood.androidappmodel.databinding.FragmentTodoListBinding
 import kotlinx.android.synthetic.main.fragment_todo_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
+/*
+*************************************
+*************************************
+* *                               * *
+* *    DO NOT FOLLOW THIS FILE    * *
+* *                               * *
+*************************************
+************
+ */
 class TodoListFragment : Fragment() {
 
     private lateinit var binding: FragmentTodoListBinding

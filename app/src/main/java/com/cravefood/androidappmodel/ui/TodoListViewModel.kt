@@ -5,6 +5,15 @@ import androidx.lifecycle.ViewModel
 import com.cravefood.androidappmodel.data.model.TodoResponseModel
 import com.cravefood.androidappmodel.data.repository.TodoRepository
 
+/*
+*************************************
+*************************************
+* *                               * *
+* *    DO NOT FOLLOW THIS FILE    * *
+* *                               * *
+*************************************
+************
+ */
 class TodoListViewModel(
     private val todoRepository: TodoRepository
 ) : ViewModel() {
