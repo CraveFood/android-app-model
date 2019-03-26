@@ -1,43 +1,36 @@
 package com.cravefood.androidappmodel.ui
 
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cravefood.androidappmodel.data.model.TodoResponseModel
 import com.cravefood.androidappmodel.data.repository.TodoRepository
 import com.cravefood.androidappmodel.util.RequestCallback
 
-class TodoViewModel(
-    private val todosRepository: TodoRepository
-) : ViewModel() {
+class TodoViewModel(private val todosRepository: TodoRepository) : ViewModel() {
 
-    val todoObservable = MutableLiveData<TodoState>()
+    val progressBarVisibility = MutableLiveData<Int>().also { it.value = View.GONE }
+    val todoViewObservable = MutableLiveData<TodoResponseModel>()
+    val id = MutableLiveData<String>()
 
-
-    fun getTodo(id: Int) {
-        todoObservable.value = TodoState.ToolbarLoading
-        todosRepository.getTodo(id, object : RequestCallback<TodoResponseModel>() {
+    fun getTodo() {
+        progressBarVisibility.value = View.VISIBLE
+        todosRepository.getTodo(id.value!!.toInt(), object : RequestCallback<TodoResponseModel>() {
 
             override fun onRequestResponse(responseObject: TodoResponseModel) {
-                todoObservable.value = TodoState.Retrieved(responseObject)
+                progressBarVisibility.value = View.GONE
+                todoViewObservable.value = responseObject
             }
 
             override fun onRequestError(throwable: Throwable?) {
-                todoObservable.value =
-                    TodoState.ErrorGettingItem(throwable?.message ?: "err")
+                progressBarVisibility.value = View.GONE
             }
 
             override fun onNoInternetConnection(message: String) {
-                todoObservable.value = TodoState.NotConnected
+                progressBarVisibility.value = View.GONE
+                // todoObservable.value = TodoState.NotConnected
             }
 
         })
-    }
-
-    sealed class TodoState {
-        data class Retrieved(val todo: TodoResponseModel) : TodoState()
-        data class ErrorGettingItem(val message: String) : TodoState()
-        object ToolbarLoading : TodoState()
-        object NotConnected : TodoState()
-
     }
 }

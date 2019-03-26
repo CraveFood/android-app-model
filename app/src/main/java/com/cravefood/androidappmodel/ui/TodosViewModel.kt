@@ -1,5 +1,8 @@
 package com.cravefood.androidappmodel.ui
 
+import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cravefood.androidappmodel.data.model.TodoResponseModel
@@ -10,46 +13,44 @@ class TodosViewModel(
     private val todosRepository: TodoRepository
 ) : ViewModel() {
 
-    private lateinit var todos: List<TodoResponseModel>
-    val todosObservable = MutableLiveData<TodosState>()
+    private val _todos = MutableLiveData<List<TodoResponseModel>>().apply { value = emptyList() }
+    val todos: LiveData<List<TodoResponseModel>>
+        get() = _todos
+    val progressBarVisibility = MutableLiveData<Int>().apply { value = View.GONE }
 
     fun getTodos(forceUpdate: Boolean = false) {
-        if (::todos.isInitialized && !forceUpdate) {
-            handleTodosResponse(todos)
+        if (!todos.value!!.isEmpty() && !forceUpdate) {
+            //handleTodosResponse(todos)
             return
         }
 
-        todosObservable.value = TodosState.ToolbarLoading
+        progressBarVisibility.value = View.VISIBLE
 
         todosRepository.getTodos(object : RequestCallback<List<TodoResponseModel>>() {
 
             override fun onRequestResponse(responseObject: List<TodoResponseModel>) {
+                progressBarVisibility.value = View.GONE
                 handleTodosResponse(responseObject)
             }
 
             override fun onRequestError(throwable: Throwable?) {
-                todosObservable.value =
-                    TodosState.ErrorGettingList(throwable?.message ?: "err")
+                progressBarVisibility.value = View.GONE
             }
 
             override fun onNoInternetConnection(message: String) {
-                todosObservable.value = TodosState.NotConnected
+                progressBarVisibility.value = View.GONE
             }
 
         })
     }
 
-    private fun handleTodosResponse(responseObject: List<TodoResponseModel>) {
-        todos = responseObject
-        todosObservable.value = TodosState.Retrieved(todos)
+    fun onClickTodo(todo: TodoResponseModel, itemView: View) {
+        Toast.makeText(itemView.context, "Item: " + todo.title, Toast.LENGTH_SHORT).show()
     }
 
-
-    sealed class TodosState {
-        data class Retrieved(val todos: List<TodoResponseModel>) : TodosState()
-        data class ErrorGettingList(val message: String) : TodosState()
-        object ToolbarLoading : TodosState()
-        object NotConnected : TodosState()
-
+    private fun handleTodosResponse(responseObject: List<TodoResponseModel>) {
+        _todos.value = responseObject
+//        todos = responseObject
+//        t odosObservable.value = TodosState.Retrieved(todos)
     }
 }

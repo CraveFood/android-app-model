@@ -4,6 +4,7 @@ import com.cravefood.androidappmodel.MyApp
 import com.cravefood.androidappmodel.data.repository.TodoRepository
 import com.cravefood.androidappmodel.data.repository.TodoRepositoryImpl
 import com.cravefood.androidappmodel.data.repository.repository_util.RetrofitBuilder
+import com.cravefood.androidappmodel.ui.TodoListViewModel
 import com.cravefood.androidappmodel.ui.TodoViewModel
 import com.cravefood.androidappmodel.ui.TodosViewModel
 import com.cravefood.androidappmodel.util.NetworkUtils
@@ -17,6 +18,7 @@ import org.koin.dsl.module.module
 val ViewModelModules: Module = module {
     viewModel { TodosViewModel(get()) }
     viewModel { TodoViewModel(get()) }
+    viewModel { TodoListViewModel(get()) }
 }
 
 
