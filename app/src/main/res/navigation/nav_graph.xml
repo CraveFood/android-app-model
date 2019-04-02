@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/nav_graph">
+<navigation
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/startScreenFragment">
 
+	<action android:id="@+id/action_global_mainFragment"
+		app:destination="@id/screenOneFragment"/>
+
+	<fragment
+		android:id="@+id/startScreenFragment"
+		android:name="com.cravefood.androidappmodel.StartScreenFragment"
+		android:label="fragment_start_screen"
+		tools:layout="@layout/fragment_start_screen">
+		<action
+			android:id="@+id/action_startScreenFragment_to_screenOneFragment"
+			app:destination="@id/screenOneFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left" />
+		<action
+			android:id="@+id/action_startScreenFragment_to_screenTwoFragment"
+			app:destination="@id/screenTwoFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
+		<action
+			android:id="@+id/action_startScreenFragment_to_screenTwoFragment2"
+			app:destination="@id/screenTwoFragment"
+			app:enterAnim="@anim/slide_in_left"
+			app:exitAnim="@anim/slide_out_right"
+			app:popEnterAnim="@anim/slide_in_right"
+			app:popExitAnim="@anim/slide_out_left" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/screenOneFragment"
+		android:name="com.cravefood.androidappmodel.ScreenOneFragment"
+		android:label="fragment_screen_one"
+		tools:layout="@layout/fragment_screen_one" />
+
+	<fragment
+		android:id="@+id/screenTwoFragment"
+		android:name="com.cravefood.androidappmodel.ScreenTwoFragment"
+		android:label="fragment_screen_two"
+		tools:layout="@layout/fragment_screen_two">
+		<argument
+			android:name="@string/param_screen_two_fragment_name"
+			android:defaultValue="name" />
+		<deepLink app:uri="www.example.com/user/{userName}" />
+		<action
+			android:id="@+id/action_screenTwoFragment_to_placeholder"
+			app:destination="@id/placeholder" />
+	</fragment>
+	<fragment android:id="@+id/placeholder" />
 </navigation>

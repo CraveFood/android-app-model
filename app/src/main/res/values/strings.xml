@@ -1,4 +1,7 @@
 <resources>
 	<string name="app_name">AndroidAppModel</string>
 	<string name="screen_one">Screen One</string>
+
+	<!--PARAMETERS IDS-->
+	<string name="param_screen_two_fragment_name">userName</string>
 </resources>
