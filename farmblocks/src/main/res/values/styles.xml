@@ -1,10 +1,23 @@
 <resources>
 
-	<style name="FarmBlocks" parent="Theme.MaterialComponents.Light.DarkActionBar">
+	<style name="FarmBlocks" parent="Theme.MaterialComponents.Light.NoActionBar">
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
 		<item name="android:windowBackground">@color/colorWindowBackground</item>
+		<item name="android:statusBarColor">@color/colorWindowBackground</item>
+		<item name="android:windowLightStatusBar">true</item>
+	</style>
+
+	<style name="FarmBlocks.ToolbarStyle" parent="Widget.MaterialComponents.Toolbar">
+		<item name="android:background">#FFFFFF</item>
+		<item name="titleTextAppearance">@style/FarmBlocks.ToolbarStyle.TextAppearance</item>
+		<item name="titleTextColor">#000000</item>
+		<item name="android:elevation">6dp</item>
+	</style>
+
+	<style name="FarmBlocks.ToolbarStyle.TextAppearance">
+		<item name="android:textSize">18sp</item>
 	</style>
 
 </resources>

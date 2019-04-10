@@ -8,6 +8,12 @@
 	android:orientation="vertical"
 	tools:context=".MainActivity">
 
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		style="@style/FarmBlocks.ToolbarStyle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
+
 	<FrameLayout
 		android:id="@+id/nav_host_container"
 		android:layout_width="match_parent"
