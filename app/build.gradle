@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.cravefood.androidappmodel"
+        applicationId MyStringUtils.firstWord()
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -31,4 +31,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    implementation Libs.anko
 }
+
+task sayIt(type: HelloWorld)
