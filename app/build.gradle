@@ -24,9 +24,12 @@ android {
 
 ext {
 	nav_version = "2.0.0"
+	glide_version = "4.9.0"
+	koin_version = "1.0.2"
 }
 
 dependencies {
+	implementation project(path: ':data')
 	implementation project(path: ':farmblocks')
 
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -44,4 +47,14 @@ dependencies {
 	// Google Navigation Component
 	implementation "androidx.navigation:navigation-fragment:$nav_version"
 	implementation "androidx.navigation:navigation-ui:$nav_version"
+	implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+	// Glide
+	implementation "com.github.bumptech.glide:glide:$glide_version"
+	annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+	// Koin
+	implementation "org.koin:koin-androidx-scope:$koin_version" // Koin AndroidX Scope feature
+	implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+	// Koin AndroidX ViewModel feature
 }

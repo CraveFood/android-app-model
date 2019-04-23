@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
 	compileSdkVersion 28
@@ -34,4 +36,8 @@ dependencies {
 
 	// Material Component
 	implementation 'com.google.android.material:material:1.0.0'
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+	mavenCentral()
 }
