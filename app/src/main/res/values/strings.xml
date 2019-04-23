@@ -1,6 +1,10 @@
 <resources>
+	<string name="argument_product_detail_productId">productId</string>
+
     <string name="app_name">AndroidAppModel</string>
 	<string name="products">Products</string>
 	<string name="orders">Orders</string>
 	<string name="settings">Settings</string>
+	<string name="products_list">Products List</string>
+	<string name="product">Product Detail</string>
 </resources>
