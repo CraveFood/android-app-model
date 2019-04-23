@@ -3,12 +3,31 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/products"
-	app:startDestination="@+id/products">
+	android:id="@+id/productsListing"
+	app:startDestination="@+id/productsListing">
 
 	<fragment
-		android:id="@+id/products"
-		android:name="com.cravefood.androidappmodel.orders.OrdersListing"
-		android:label="@string/products"
-		tools:layout="@layout/fragment_orders_listing" />
+		android:id="@+id/productsListing"
+		android:name="com.cravefood.androidappmodel.products.listing.ProductsListing"
+		android:label="@string/products_list"
+		tools:layout="@layout/fragment_products_listing">
+		<action
+			android:id="@+id/action_productsListing_to_productDetail"
+			app:destination="@id/productDetail"
+			app:enterAnim="@anim/nav_default_enter_anim"
+			app:exitAnim="@anim/nav_default_exit_anim"
+			app:launchSingleTop="true"
+			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+			app:popExitAnim="@anim/nav_default_pop_exit_anim"
+			app:popUpToInclusive="false" />
+	</fragment>
+	<fragment
+		android:id="@+id/productDetail"
+		android:name="com.cravefood.androidappmodel.products.detail.ProductDetail"
+		android:label="@string/product">
+		<argument
+			android:name="@string/argument_product_detail_productId"
+			app:argType="long" />
+	</fragment>
+
 </navigation>

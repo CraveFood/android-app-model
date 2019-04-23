@@ -8,7 +8,7 @@
 
 	<fragment
 		android:id="@+id/orders"
-		android:name="com.cravefood.androidappmodel.settings.Settings"
+		android:name="com.cravefood.androidappmodel.orders.OrdersListing"
 		android:label="@string/orders"
-		tools:layout="@layout/fragment_settings" />
+		tools:layout="@layout/fragment_orders_listing" />
 </navigation>

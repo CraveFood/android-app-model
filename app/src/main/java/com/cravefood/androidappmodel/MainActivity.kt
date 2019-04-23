@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,8 +25,11 @@ class MainActivity : AppCompatActivity() {
 		setupBottomNavigationBar()
 	}
 
+	/**
+	 * Called on first creation and when restoring state.
+	 */
 	private fun setupBottomNavigationBar() {
-		val navGraphIds = listOf(R.navigation.orders, R.navigation.products, R.navigation.settings)
+		val navGraphIds = listOf(R.navigation.products, R.navigation.orders, R.navigation.settings)
 
 		// Setup the bottom navigation view with a list of navigation graphs
 		val controller = bottomNavigationView.setupWithNavController(
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 		// Whenever the selected controller changes, setup the action bar.
 		setSupportActionBar(toolbar)
 		controller.observe(this, Observer { navController ->
-			setupActionBarWithNavController(this, navController)
+			setupActionBarWithNavController(navController)
 		})
 		currentNavController = controller
 	}
@@ -48,6 +51,9 @@ class MainActivity : AppCompatActivity() {
 		return currentNavController?.value?.navigateUp() ?: false
 	}
 
+	/**
+	 * Overriding popBackStack is necessary in this case if the app is started from the deep link.
+	 */
 	override fun onBackPressed() {
 		if (currentNavController?.value?.popBackStack() != true) {
 			super.onBackPressed()
