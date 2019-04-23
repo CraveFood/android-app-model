@@ -5,6 +5,13 @@
 	android:id="@+id/constraintLayoutProductsListing"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".products.ProductsListing">
+	tools:context=".products.listing.ProductsListing">
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recyclerViewProductsListing"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:clipToPadding="false"
+		android:paddingTop="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

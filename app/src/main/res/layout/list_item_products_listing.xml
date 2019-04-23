@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<com.google.android.material.card.MaterialCardView
+		android:id="@+id/materialCardView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="12dp"
+		android:layout_marginEnd="20dp"
+		android:layout_marginStart="20dp"
+		android:layout_marginTop="12dp"
+		android:backgroundTint="@android:color/white"
+		app:cardCornerRadius="4dp"
+		app:cardElevation="6dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:foreground="?android:attr/selectableItemBackground"
+			android:paddingBottom="24dp"
+			android:paddingEnd="8dp"
+			android:paddingStart="8dp"
+			android:paddingTop="24dp"
+			tools:ignore="UnusedAttribute">
+
+			<ImageView
+				android:id="@+id/imageViewPhoto"
+				android:layout_width="150dp"
+				android:layout_height="130dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:id="@+id/textViewTitle"
+				style="@style/FarmBlocks.TextStyle.List.Title"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:maxLines="1"
+				app:layout_constraintBottom_toTopOf="@+id/textViewSubtitle"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@+id/imageViewPhoto"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintVertical_chainStyle="packed"
+				tools:text="Morango" />
+
+			<TextView
+				android:id="@+id/textViewSubtitle"
+				style="@style/FarmBlocks.TextStyle.List.Subtitle"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginTop="16dp"
+				android:maxLines="3"
+				app:layout_constraintBottom_toTopOf="@+id/textViewPrice"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@+id/imageViewPhoto"
+				app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+				tools:text="Morango" />
+
+			<TextView
+				android:id="@+id/textViewPrice"
+				style="@style/FarmBlocks.TextStyle.List.Price"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginTop="16dp"
+				android:maxLines="1"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toStartOf="@+id/textViewUnit"
+				app:layout_constraintStart_toEndOf="@+id/imageViewPhoto"
+				app:layout_constraintTop_toBottomOf="@+id/textViewSubtitle"
+				tools:text="Morango" />
+
+			<TextView
+				android:id="@+id/textViewUnit"
+				style="@style/FarmBlocks.TextStyle.List.Subtitle"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="8dp"
+				android:maxLines="1"
+				app:layout_constraintBottom_toBottomOf="@+id/textViewPrice"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@+id/textViewPrice"
+				app:layout_constraintTop_toTopOf="@+id/textViewPrice"
+				tools:text="Morango" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
