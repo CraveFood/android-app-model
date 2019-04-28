@@ -7,9 +7,8 @@ class ProductsListingViewModel : ViewModel() {
 
 	val model = ProductsListingModel()
 
-	fun getProducts() {
-		if (model.recyclerViewProductListingOb.value?.isEmpty() == true)
-			model.recyclerViewProductListingOb.value = ProductList.getProductListing()
+	fun getProducts(query: String? = null) {
+		model.recyclerViewProductListingOb.value = ProductList.getProductListing(query)
 	}
 
 }
