@@ -1,1 +1,1 @@
-include ':app', ':farmblocks', ':data'
+include ':app', ':farmblocks', ':data', ':common'
