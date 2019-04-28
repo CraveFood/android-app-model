@@ -3,11 +3,11 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/orders"
-	app:startDestination="@+id/orders">
+	android:id="@+id/nav_orders"
+	app:startDestination="@+id/fragmentOrders">
 
 	<fragment
-		android:id="@+id/orders"
+		android:id="@+id/fragmentOrders"
 		android:name="com.cravefood.androidappmodel.orders.OrdersListing"
 		android:label="@string/orders"
 		tools:layout="@layout/fragment_orders_listing" />

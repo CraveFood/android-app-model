@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 	 * Called on first creation and when restoring state.
 	 */
 	private fun setupBottomNavigationBar() {
-		val navGraphIds = listOf(R.navigation.products, R.navigation.orders, R.navigation.settings)
+		val navGraphIds = listOf(R.navigation.nav_products, R.navigation.nav_orders, R.navigation.nav_settings)
 
 		// Setup the bottom navigation view with a list of navigation graphs
 		val controller = bottomNavigationView.setupWithNavController(
