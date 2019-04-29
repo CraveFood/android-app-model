@@ -8,4 +8,5 @@
 	<string name="products_list">Products List</string>
 	<string name="product">Product Detail</string>
 	<string name="search_products">Search Products</string>
+	<string name="search_orders">Search Orders</string>
 </resources>
