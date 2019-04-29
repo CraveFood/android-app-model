@@ -21,6 +21,7 @@
 			app:popExitAnim="@anim/nav_default_pop_exit_anim"
 			app:popUpToInclusive="false" />
 	</fragment>
+
 	<fragment
 		android:id="@+id/fragmentOrderDetail"
 		android:name="com.cravefood.androidappmodel.orders.detail.OrderDetail"
@@ -29,5 +30,10 @@
 		<argument
 			android:name="@string/argument_order_detail_orderId"
 			app:argType="long" />
+		<deepLink
+			android:id="@+id/deepLink"
+			android:autoVerify="true"
+			app:uri="www.cravefood.com/orders/{orderId}" />
 	</fragment>
+
 </navigation>
