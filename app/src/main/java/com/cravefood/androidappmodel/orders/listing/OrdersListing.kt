@@ -1,4 +1,4 @@
-package com.cravefood.androidappmodel.orders
+package com.cravefood.androidappmodel.orders.listing
 
 import android.os.Bundle
 import android.view.LayoutInflater
