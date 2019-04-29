@@ -1,5 +1,9 @@
 package com.cravefood.androidappmodel.orders.listing
 
-class OrdersListingModel {
+import androidx.lifecycle.MutableLiveData
+import com.cravefood.data.OrderModel
 
+class OrdersListingModel {
+	val recyclerViewOrdersListingOb =
+		MutableLiveData<List<OrderModel>>().apply { value = emptyList() }
 }
