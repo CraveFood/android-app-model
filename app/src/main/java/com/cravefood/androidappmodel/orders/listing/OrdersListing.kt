@@ -3,14 +3,15 @@ package com.cravefood.androidappmodel.orders.listing
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cravefood.androidappmodel.R
 import com.cravefood.androidappmodel.observe
 import com.cravefood.data.OrderModel
 import com.example.common.DebounceQueryTextListener
 import kotlinx.android.synthetic.main.fragment_orders_listing.*
-import org.jetbrains.anko.support.v4.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OrdersListing : Fragment() {
@@ -68,7 +69,15 @@ class OrdersListing : Fragment() {
 		recyclerViewOrdersListing.apply {
 			layoutManager = LinearLayoutManager(context)
 			adapter = OrdersListingAdapter { order ->
-				toast(order.vendorName)
+				val bundle =
+					bundleOf(
+						getString(R.string.argument_order_detail_orderId) to order.id
+					)
+
+				findNavController().navigate(
+					R.id.action_fragmentOrders_to_fragmentOrderDetail,
+					bundle
+				)
 			}
 		}
 	}
