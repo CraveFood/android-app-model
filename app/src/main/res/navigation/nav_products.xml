@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_products"
+	app:startDestination="@+id/fragmentProductsListing">
+
+	<fragment
+		android:id="@+id/fragmentProductsListing"
+		android:name="com.cravefood.androidappmodel.products.listing.ProductsListing"
+		android:label="@string/products_list"
+		tools:layout="@layout/fragment_products_listing">
+		<action
+			android:id="@+id/action_productsListing_to_productDetail"
+			app:destination="@id/fragmentProductDetail"
+			app:enterAnim="@anim/nav_default_enter_anim"
+			app:exitAnim="@anim/nav_default_exit_anim"
+			app:launchSingleTop="true"
+			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+			app:popExitAnim="@anim/nav_default_pop_exit_anim"
+			app:popUpToInclusive="false" />
+	</fragment>
+	<fragment
+		android:id="@+id/fragmentProductDetail"
+		android:name="com.cravefood.androidappmodel.products.detail.ProductDetail"
+		android:label="@string/product"
+		tools:layout="@layout/fragment_product_detail">
+		<argument
+			android:name="@string/argument_product_detail_productId"
+			app:argType="long" />
+	</fragment>
+
+</navigation>
