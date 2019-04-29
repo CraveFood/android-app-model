@@ -10,5 +10,30 @@
 		android:id="@+id/fragmentOrders"
 		android:name="com.cravefood.androidappmodel.orders.listing.OrdersListing"
 		android:label="@string/orders"
-		tools:layout="@layout/fragment_orders_listing" />
+		tools:layout="@layout/fragment_orders_listing">
+		<action
+			android:id="@+id/action_fragmentOrders_to_fragmentOrderDetail"
+			app:destination="@id/fragmentOrderDetail"
+			app:enterAnim="@anim/nav_default_enter_anim"
+			app:exitAnim="@anim/nav_default_exit_anim"
+			app:launchSingleTop="true"
+			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+			app:popExitAnim="@anim/nav_default_pop_exit_anim"
+			app:popUpToInclusive="false" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/fragmentOrderDetail"
+		android:name="com.cravefood.androidappmodel.orders.detail.OrderDetail"
+		android:label="@string/order_detail"
+		tools:layout="@layout/fragment_order_detail">
+		<argument
+			android:name="@string/argument_order_detail_orderId"
+			app:argType="long" />
+		<deepLink
+			android:id="@+id/deepLink"
+			android:autoVerify="true"
+			app:uri="www.cravefood.com/orders/{orderId}" />
+	</fragment>
+
 </navigation>

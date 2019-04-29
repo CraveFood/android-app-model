@@ -108,5 +108,11 @@ class OrderList {
 				list
 			}
 		}
+
+		fun getOrderById(orderId: Long): OrderModel? {
+			val list = getOrdersListing()
+
+			return list.first { it.id == orderId }
+		}
 	}
 }
